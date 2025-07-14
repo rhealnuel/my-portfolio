@@ -74,7 +74,7 @@ const Navbar = () => {
           ))}
         </ul>
 
-        <div className="flex items-center gap-4 mt-6">
+        <div className="flex items-center gap-4 my-6">
           <a href="https://docs.google.com/document/d/1iBuuoVU1eM26WLPdp_N-zX5L97rzgZTyO4UHTBFnLVE/edit?usp=sharing" target='_blank'>
           <button className="bg-gray-900 text-white text-sm py-2 px-4 rounded-full w-full hover:bg-gray-800 transition-all">
             Download CV
