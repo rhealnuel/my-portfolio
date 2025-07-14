@@ -22,7 +22,7 @@ export default function AnimatedText() {
   return (
     <h2
       ref={ref}
-      className="head text-2xl lg:text-5xl font-bold tracking-tighter text-gray-900"
+      className="head text-4xl lg:text-5xl font-bold tracking-tighter text-gray-900"
     >
       {visible && (
         <Typewriter
