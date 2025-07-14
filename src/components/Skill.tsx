@@ -46,12 +46,12 @@ const Skill = () => {
         <div className='flex w-full  flex-col items-center lg:my-24 lg:px-24 px-4 my-4 gap-10'>
             <div className='flex flex-col gap-2 items-center'>
                 <TitleButton title='Skills' />
-                <p className='body'>The skills, tools and technologies I am really good at:</p>
+                <p className='body text-center lg:text-start'>The skills, tools and technologies I am really good at:</p>
 
             </div>
 
 
-        <div className="flex flex-wrap gap-6 lg:gap-15 items-center">
+        <div className="flex flex-wrap gap-6 lg:gap-15 items-center w-full justify-center">
            {techs.map((tech) => (
                     <div key={tech.name} className="flex flex-col items-center text-sm">
                     {tech.class ? (

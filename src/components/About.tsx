@@ -17,10 +17,10 @@ const About = () => {
 
           {/* Text Content */}
           <div className="w-full max-w-2xl">
-            <h3 className="head font-bold text-2xl lg:text-3xl text-gray-900 mb-4">
+            <h3 className="head font-bold text-2xl text-center lg:text-start lg:text-3xl text-gray-900 mb-4">
               Curious about me? Here you have it:
             </h3>
-            <div className="space-y-5 text-base text-gray-600">
+            <div className="space-y-5 text-base text-center lg:text-start text-gray-600">
              <p>
   Hey, I'm Emmanuel a self-driven software developer with a thing for clean design, robust code, and the thrill of solving real-world problems. My specialty? Building out end-to-end solutions with <b>React.js</b> and <b>Node.js</b>, but my toolkit is always evolving.
 </p>

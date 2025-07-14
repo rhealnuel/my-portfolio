@@ -38,7 +38,7 @@ const Experience = () => {
       <div className='flex flex-col w-full items-center gap-6'>
         <div className='w-full flex flex-col items-center gap-2'>
           <TitleButton title='Experience' />
-          <p className='body'>Here is a quick summary of my most recent experiences:</p>
+          <p className='body text-center lg:text-start'>Here is a quick summary of my most recent experiences:</p>
         </div>
         <div className='flex flex-col gap-6 w-full items-center'>
           {loading && <Spinner />}

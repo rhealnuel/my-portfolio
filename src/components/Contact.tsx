@@ -39,8 +39,8 @@ export default function Contact() {
     <section className="min-h-screen bg-gray-50 flex flex-col justify-between px-4 py-16" id="Contact">
       <div className="w-full max-w-2xl mx-auto bg-white rounded-xl shadow p-8">
         {/* Heading */}
-        <h2 className="text-3xl font-bold text-gray-900 mb-2">Let’s Connect 👋</h2>
-        <p className="text-gray-500 mb-8">
+        <h2 className="text-3xl font-bold text-gray-900 mb-2 text-center lg:text-start">Let’s Connect 👋</h2>
+        <p className="text-gray-500 mb-8 text-center lg:text-start">
           I'd love to hear from you. Whether you have a question, a project idea, or just want to say hi — feel free to reach out.
         </p>
 

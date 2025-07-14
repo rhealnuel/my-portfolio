@@ -38,7 +38,7 @@ const Work = () => {
       <div className='flex flex-col gap-10 w-full'>
         <div className='w-full flex flex-col items-center gap-2'>
           <TitleButton title='Work' />
-          <p className='body'>Some of the noteworthy projects I have built:</p>
+          <p className='body text-center lg:text-start'>Some of the noteworthy projects I have built:</p>
         </div>
 
         <div className='flex flex-col w-full items-center gap-6'>
