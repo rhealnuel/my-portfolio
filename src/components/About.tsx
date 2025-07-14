@@ -17,18 +17,18 @@ const About = () => {
 
           {/* Text Content */}
           <div className="w-full max-w-2xl">
-            <h3 className="head font-bold text-3xl text-gray-900 mb-4">
+            <h3 className="head font-bold text-2xl lg:text-3xl text-gray-900 mb-4">
               Curious about me? Here you have it:
             </h3>
             <div className="space-y-5 text-base text-gray-600">
              <p>
-  Hey, I'm Emmanuel—a self-driven software developer with a thing for clean design, robust code, and the thrill of solving real-world problems. My specialty? Building out end-to-end solutions with <b>React.js</b> and <b>Node.js</b>, but my toolkit is always evolving.
+  Hey, I'm Emmanuel a self-driven software developer with a thing for clean design, robust code, and the thrill of solving real-world problems. My specialty? Building out end-to-end solutions with <b>React.js</b> and <b>Node.js</b>, but my toolkit is always evolving.
 </p>
 <p>
-  My dev journey kicked off back in 2020, and since then, I’ve been obsessed with crafting digital experiences that *feel* as good as they look. Whether I’m shaping a pixel-perfect UI with <b>Tailwind CSS</b> or wiring up a slick API in <b>NodeJS</b>, I’m all about seamless user experience, performance, and maintainable code.
+  My dev journey kicked off back in 2020, and since then, I’ve been obsessed with crafting digital experiences that feel as good as they look. Whether I’m shaping a pixel-perfect UI with <b>Tailwind CSS</b> or wiring up a slick API in <b>NodeJS</b>, I’m all about seamless user experience, performance, and maintainable code.
 </p>
 <p>
-  These days, you’ll catch me shipping modern web apps with <b>Next.js</b>, <b>TypeScript</b>, <b>Convex</b>, <b>Firebase</b>, and whatever else the project needs. I thrive on learning new tech and pushing boundaries—if there’s a shortcut to mastery, I’m on it.
+  These days, you’ll catch me shipping modern web apps with <b>Next.js</b>, <b>TypeScript</b>, <b>Convex</b>, <b>Firebase</b>, and whatever else the project needs. I thrive on learning new tech and pushing boundaries if there’s a shortcut to mastery, I’m on it.
 </p>
 <p>
   Off the clock, you’ll probably find me sharing dev tips, project updates, hanging out on Indie Hackers, or just chilling and soaking in startup stories. Want to see what I’m building? check out my code on <a href="https://github.com/rhealnuel" target="_blank"><b>GitHub</b></a>.
