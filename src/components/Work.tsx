@@ -14,7 +14,7 @@ type Project = {
   link: string;
 };
 
-const VISIBLE_COUNT = 6;
+const VISIBLE_COUNT = 3;
 
 const Work = () => {
   const [projects, setProjects] = useState<Project[]>([]);

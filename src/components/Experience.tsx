@@ -14,7 +14,7 @@ type Experience = {
   bullets: string[];
 };
 
-const VISIBLE_COUNT = 6;
+const VISIBLE_COUNT = 3;
 
 const Experience = () => {
   const [experiences, setExperiences] = useState<Experience[]>([]);
