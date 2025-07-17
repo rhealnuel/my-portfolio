@@ -7,6 +7,21 @@ const nextConfig: NextConfig = {
       "res.cloudinary.com",
     ],
   },
+  async redirects() {
+  return [
+    {
+      source: '/:path*',
+      has: [
+        {
+          type: 'host',
+          value: 'kawekwune.vercel.app',
+        },
+      ],
+      destination: 'https://kawekwune-emmanuel.vercel.app/:path*',
+      permanent: true,
+    },
+  ];
+},
 };
 
 export default nextConfig;
