@@ -13,31 +13,49 @@ const dmSans = DM_Sans({
 });
 
 export const metadata: Metadata = {
-  title: "Emmanuel Kawekwune | Software Developer & Full Stack Engineer",
+  title: "Emmanuel Kawekwune | Full Stack Developer, React & Next.js Expert in Lagos State, Nigeria",
   description:
-    "Showcasing the projects and skills of Emmanuel Kawekwune, a passionate software developer specializing in React.js, Next.js, Node.js, and modern web technologies. Explore portfolio, experience, and contact info.",
+    "Emmanuel Kawekwune is a highly skilled Full Stack Software Developer with 3+ years experience, specializing in React.js, Next.js, Node.js, and modern web technologies. Browse projects, experience, and contact info.",
+  keywords: [
+    "Emmanuel Kawekwune",
+    "Full Stack Developer",
+    "React Developer",
+    "Next.js Expert",
+    "Node.js",
+    "Web Developer Nigeria",
+    "JavaScript Engineer",
+    "Portfolio",
+    "Frontend Developer",
+    "Backend Developer"
+  ],
+  alternates: {
+    canonical: "https://kawekwune-emmanuel.vercel.app",
+  },
   openGraph: {
-    title: "Emmanuel Kawekwune | Software Developer Portfolio",
+    title: "Emmanuel Kawekwune | Full Stack Developer Portfolio",
     description:
-      "A modern developer portfolio built with Next.js. Explore projects, skills, and professional experience of Emmanuel Kawekwune.",
+      "Discover the portfolio, projects, and skills of Emmanuel Kawekwune, a top React.js and Next.js engineer from Lagos State, Nigeria.",
     url: "https://kawekwune-emmanuel.vercel.app",
     siteName: "Emmanuel Kawekwune Portfolio",
     images: [
       {
-        url: "https://kawekwune-emmanuel.vercel.app/first.png", // <- Use your image name and URL here
+        url: "https://kawekwune-emmanuel.vercel.app/first.png",
         width: 1200,
         height: 630,
-        alt: "Emmanuel Kawekwune Portfolio",
+        alt: "Portfolio of Emmanuel Kawekwune, Full Stack Developer in Lagos State, Nigeria",
       },
     ],
     type: "website",
+    locale: "en_NG", // English/Nigeria
   },
   twitter: {
     card: "summary_large_image",
-    title: "Emmanuel Kawekwune | Software Developer Portfolio",
+    site: "@rhealnuel", // (optional) your Twitter handle
+    creator: "@rhealnuel", // (optional)
+    title: "Emmanuel Kawekwune | Full Stack Developer Portfolio",
     description:
-      "A modern portfolio built with Next.js, featuring the work of Emmanuel Kawekwune, a full stack web developer.",
-    images: ["https://kawekwune-emmanuel.vercel.app/first.png"], // <- Same here
+      "See the work and experience of Emmanuel Kawekwune, an expert in React.js, Next.js, and Node.js.",
+    images: ["https://kawekwune-emmanuel.vercel.app/first.png"],
   },
 };
 
