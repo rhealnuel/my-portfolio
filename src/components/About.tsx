@@ -21,18 +21,24 @@ const About = () => {
               Curious about me? Here you have it:
             </h3>
             <div className="space-y-5 text-base text-center lg:text-start text-gray-600">
-             <p>
-  Hey, I'm Emmanuel a self-driven software developer with a thing for clean design, robust code, and the thrill of solving real-world problems. My specialty? Building out end-to-end solutions with <b>React.js</b> and <b>Node.js</b>, but my toolkit is always evolving.
-</p>
-<p>
-  My dev journey kicked off back in 2020, and since then, I’ve been obsessed with crafting digital experiences that feel as good as they look. Whether I’m shaping a pixel-perfect UI with <b>Tailwind CSS</b> or wiring up a slick API in <b>NodeJS</b>, I’m all about seamless user experience, performance, and maintainable code.
-</p>
-<p>
-  These days, you’ll catch me shipping modern web apps with <b>Next.js</b>, <b>TypeScript</b>, <b>Convex</b>, <b>Firebase</b>, and whatever else the project needs. I thrive on learning new tech and pushing boundaries if there’s a shortcut to mastery, I’m on it.
-</p>
-<p>
-  Off the clock, you’ll probably find me sharing dev tips, project updates, hanging out on Indie Hackers, or just chilling and soaking in startup stories. Want to see what I’m building? check out my code on <a href="https://github.com/rhealnuel" target="_blank"><b>GitHub</b></a>.
-</p>
+            <p> 
+              Hi, I’m Emmanuel a self-motivated software developer with a passion for clean design, 
+              reliable code, and solving real-world problems through technology. I specialize in building 
+              full-stack web applications using <b>React.js</b> and <b>Node.js</b>, though I’m always exploring 
+              new tools to stay ahead. 
+              </p> 
+              <p> I began my development journey in 2020, and since then, I’ve been dedicated to creating digital 
+                experiences that are both intuitive and visually engaging. Whether it’s designing polished user 
+                interfaces with <b>Tailwind CSS</b> or building scalable backends with <b>Node.js</b> and <b>Express</b>, 
+                I focus on performance, usability, and clean, maintainable code. 
+                </p> 
+                <p> Currently, I build modern web apps using technologies like <b>Next.js</b>, <b>TypeScript</b>, 
+                <b>Node.js</b>, <b>Express</b>, <b>Convex</b>, and <b>Firebase</b> adapting to whatever the project demands. 
+                I love learning new technologies and constantly improving my workflow to deliver better results. 
+                </p> 
+                <p> Outside of work, I enjoy sharing development tips, showcasing my projects, connecting with other builders 
+                  on platforms like Indie Hackers, and drawing inspiration from startup stories. Curious about what I’ve been 
+                  working on? Take a look at my code on <a href="https://github.com/rhealnuel" target="_blank"><b>GitHub</b></a>. </p>
 
             </div>
           </div>

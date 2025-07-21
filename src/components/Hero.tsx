@@ -18,11 +18,12 @@ const Hero = () => {
           <div className="space-y-4">
             <AnimatedText />
             <p className="body text-base text-gray-600">
-              I'm a full stack developer (React.js & Node.js) with a focus on
-              creating (and occasionally designing) exceptional digital
-              experiences that are fast, accessible, visually appealing, and
-              responsive. Even though I have been creating web applications for
-              over 3 years.
+              I'm a Full Stack Developer with over 3 years of experience building 
+              web applications using React.js and Node.js. I specialize in creating 
+              high-quality digital experiences that are fast, responsive, user-friendly, 
+              and visually appealing. My work not only focuses on functionality but also 
+              ensures that websites are accessible to everyone. I also contribute to design 
+              when needed to enhance the overall user experience.
             </p>
           </div>
 
