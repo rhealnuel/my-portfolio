@@ -12,7 +12,7 @@ const About = () => {
         <div className="w-full flex flex-col lg:flex-row gap-12 lg:gap-32 items-center">
           {/* Image Box */}
           <div className=" relative w-full max-w-xs h-[320px] rounded-md" >
-              <Image src={"/second.png"} alt="me" fill className='object-cover rounded-2xl' />  
+              <Image src={"/mypicture.jpg"} alt="me" fill className='object-cover rounded-2xl' />  
           </div>
 
           {/* Text Content */}
