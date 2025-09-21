@@ -29,7 +29,7 @@ const Hero = () => {
 
           <div className="flex items-center gap-3 text-gray-700">
             <IoLocationOutline size={22} />
-            <p className="text-sm">Lagos, Nigeria</p>
+            <p className="text-sm">Manchester, UK</p>
           </div>
 
           <div className="flex gap-4 text-gray-700 text-xl">
