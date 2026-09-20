@@ -126,7 +126,7 @@ const Hero = () => {
                   animate="visible"
                   variants={reveal}
                   className="mt-9 flex flex-wrap items-center gap-3"
-                >
+                > 
                   <a
                     href="#Work"
                     className="group inline-flex items-center gap-3 rounded-full bg-ink px-5 py-3 text-sm font-medium text-paper transition-all duration-200 hover:bg-ink-soft"
