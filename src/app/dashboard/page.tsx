@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useEffect, useState } from 'react';
-import { FiExternalLink, FiEdit2, FiTrash, FiSave, FiX } from 'react-icons/fi';
+import { FiExternalLink, FiEdit2, FiTrash, FiSave, FiX, FiGithub } from 'react-icons/fi';
 import { Tab } from '@headlessui/react';
 import Image from 'next/image';
 
@@ -12,6 +12,11 @@ type Project = {
   image: string;
   techStack: string[];
   link: string;
+  role: string;
+  problem: string;
+  highlights: string[];
+  githubUrl: string;
+  featured: boolean;
 };
 
 type Experience = {
@@ -28,7 +33,16 @@ function classNames(...classes: string[]) {
 }
 
 const emptyProject: Project = {
-  title: '', description: '', image: '', techStack: [], link: ''
+  title: '',
+  description: '',
+  image: '',
+  techStack: [],
+  link: '',
+  role: '',
+  problem: '',
+  highlights: [],
+  githubUrl: '',
+  featured: false,
 };
 
 const emptyExperience: Experience = {
@@ -74,7 +88,17 @@ export default function DashboardManager() {
   async function fetchProjects() {
     const res = await fetch('/api/dashboard/project');
     const { projects } = await res.json();
-    setProjects(projects);
+    // Normalize legacy documents that predate the newer optional fields
+    setProjects(
+      (projects || []).map((p: any) => ({
+        role: '',
+        problem: '',
+        highlights: [],
+        githubUrl: '',
+        featured: false,
+        ...p,
+      }))
+    );
   }
 
   async function fetchExperiences() {
@@ -238,6 +262,13 @@ export default function DashboardManager() {
                 placeholder="Title"
                 className="border p-2 rounded"
               />
+              {/* Role on this project */}
+              <input
+                value={newProject.role}
+                onChange={e => setNewProject({ ...newProject, role: e.target.value })}
+                placeholder="Your role (e.g. Full-Stack Developer & Product Owner)"
+                className="border p-2 rounded"
+              />
               {/* Project Image */}
               <label className="flex flex-col gap-2">
                 <span>Project Image</span>
@@ -270,7 +301,14 @@ export default function DashboardManager() {
               <input
                 value={newProject.link}
                 onChange={e => setNewProject({ ...newProject, link: e.target.value })}
-                placeholder="External link"
+                placeholder="Live link"
+                className="border p-2 rounded"
+              />
+              {/* GitHub link */}
+              <input
+                value={newProject.githubUrl}
+                onChange={e => setNewProject({ ...newProject, githubUrl: e.target.value })}
+                placeholder="GitHub link (optional)"
                 className="border p-2 rounded"
               />
               {/* Description */}
@@ -280,6 +318,29 @@ export default function DashboardManager() {
                 placeholder="Description"
                 className="border p-2 rounded col-span-full"
               />
+              {/* Problem it solves */}
+              <textarea
+                value={newProject.problem}
+                onChange={e => setNewProject({ ...newProject, problem: e.target.value })}
+                placeholder="The problem this product addresses (optional)"
+                className="border p-2 rounded col-span-full"
+              />
+              {/* Key highlights */}
+              <textarea
+                value={newProject.highlights.join('\n')}
+                onChange={e => setNewProject({ ...newProject, highlights: e.target.value.split('\n').filter(Boolean) })}
+                placeholder="Key functionality — one per line (optional)"
+                className="border p-2 rounded col-span-full"
+              />
+              {/* Featured toggle */}
+              <label className="flex items-center gap-2 col-span-full">
+                <input
+                  type="checkbox"
+                  checked={newProject.featured}
+                  onChange={e => setNewProject({ ...newProject, featured: e.target.checked })}
+                />
+                <span>Feature this project (gives it the large layout on the Work section)</span>
+              </label>
               <button
                 onClick={handleAddProject}
                 disabled={loading || uploading}
@@ -300,7 +361,8 @@ export default function DashboardManager() {
                     {/* Edit mode */}
                     {editingProject?._id === p._id ? (
                       <>
-                        <input value={editingProject.title} onChange={e => setEditingProject({ ...editingProject, title: e.target.value })} className="border p-2 rounded" />
+                        <input value={editingProject.title} onChange={e => setEditingProject({ ...editingProject, title: e.target.value })} placeholder="Title" className="border p-2 rounded" />
+                        <input value={editingProject.role} onChange={e => setEditingProject({ ...editingProject, role: e.target.value })} placeholder="Your role" className="border p-2 rounded" />
                         <label className="flex flex-col gap-2">
                           <input
                             type="text"
@@ -320,9 +382,20 @@ export default function DashboardManager() {
                           />
                           {uploading && <span className="text-xs text-gray-500">Uploading...</span>}
                         </label>
-                        <input value={editingProject.techStack.join(', ')} onChange={e => setEditingProject({ ...editingProject, techStack: e.target.value.split(',').map(s => s.trim()) })} className="border p-2 rounded" />
-                        <input value={editingProject.link} onChange={e => setEditingProject({ ...editingProject, link: e.target.value })} className="border p-2 rounded" />
-                        <textarea value={editingProject.description} onChange={e => setEditingProject({ ...editingProject, description: e.target.value })} className="border p-2 rounded" />
+                        <input value={editingProject.techStack.join(', ')} onChange={e => setEditingProject({ ...editingProject, techStack: e.target.value.split(',').map((s: string) => s.trim()) })} placeholder="Tech (comma separated)" className="border p-2 rounded" />
+                        <input value={editingProject.link} onChange={e => setEditingProject({ ...editingProject, link: e.target.value })} placeholder="Live link" className="border p-2 rounded" />
+                        <input value={editingProject.githubUrl} onChange={e => setEditingProject({ ...editingProject, githubUrl: e.target.value })} placeholder="GitHub link (optional)" className="border p-2 rounded" />
+                        <textarea value={editingProject.description} onChange={e => setEditingProject({ ...editingProject, description: e.target.value })} placeholder="Description" className="border p-2 rounded" />
+                        <textarea value={editingProject.problem} onChange={e => setEditingProject({ ...editingProject, problem: e.target.value })} placeholder="The problem this product addresses" className="border p-2 rounded" />
+                        <textarea value={editingProject.highlights.join('\n')} onChange={e => setEditingProject({ ...editingProject, highlights: e.target.value.split('\n').filter(Boolean) })} placeholder="Key functionality — one per line" className="border p-2 rounded" />
+                        <label className="flex items-center gap-2">
+                          <input
+                            type="checkbox"
+                            checked={!!editingProject.featured}
+                            onChange={e => setEditingProject({ ...editingProject, featured: e.target.checked })}
+                          />
+                          <span>Featured</span>
+                        </label>
                         <div className="flex gap-3">
                           <button onClick={handleSaveProject} className="bg-green-700 text-white rounded px-3 py-1 flex items-center gap-2">
                             <FiSave /> Save
@@ -335,23 +408,44 @@ export default function DashboardManager() {
                     ) : (
                       <>
                         <div className="flex justify-between items-start">
-                          <h3 className="text-2xl font-semibold">{p.title}</h3>
-                          <div className="flex gap-3 text-gray-500">
+                          <div>
+                            <h3 className="text-2xl font-semibold">{p.title}</h3>
+                            {p.role && <p className="text-sm text-gray-500">{p.role}</p>}
+                          </div>
+                          <div className="flex items-center gap-3 text-gray-500">
+                            {p.featured && (
+                              <span className="text-xs bg-gray-900 text-white rounded-full px-2 py-1">Featured</span>
+                            )}
                             <FiEdit2 className="cursor-pointer" onClick={() => setEditingProject(p)} />
                             <FiTrash className="cursor-pointer" onClick={() => handleDeleteProject(p._id!)} />
                           </div>
                         </div>
                         <p className="text-gray-500">{p.description}</p>
+                        {p.problem && (
+                          <p className="text-sm text-gray-500"><span className="font-medium text-gray-700">Problem: </span>{p.problem}</p>
+                        )}
+                        {p.highlights?.length > 0 && (
+                          <ul className="list-disc list-inside text-sm text-gray-600 space-y-1">
+                            {p.highlights.map((h, i) => <li key={i}>{h}</li>)}
+                          </ul>
+                        )}
                         <div className="flex flex-wrap gap-2">
                           {p.techStack.map((t, i) => (
                             <span key={i} className="bg-gray-200 rounded px-2 py-1 text-xs">{t}</span>
                           ))}
                         </div>
-                        {p.link && (
-                          <a href={p.link} target="_blank" rel="noopener noreferrer" className="text-gray-700 hover:text-gray-900 flex items-center gap-1">
-                            <FiExternalLink size={18} /> External Link
-                          </a>
-                        )}
+                        <div className="flex gap-4">
+                          {p.link && (
+                            <a href={p.link} target="_blank" rel="noopener noreferrer" className="text-gray-700 hover:text-gray-900 flex items-center gap-1">
+                              <FiExternalLink size={18} /> Live
+                            </a>
+                          )}
+                          {p.githubUrl && (
+                            <a href={p.githubUrl} target="_blank" rel="noopener noreferrer" className="text-gray-700 hover:text-gray-900 flex items-center gap-1">
+                              <FiGithub size={18} /> Code
+                            </a>
+                          )}
+                        </div>
                       </>
                     )}
                   </div>

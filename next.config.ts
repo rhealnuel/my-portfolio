@@ -4,6 +4,7 @@ const nextConfig: NextConfig = {
   /* config options here */
   images: {
     domains: [
+      "ik.imagekit.io",
       "res.cloudinary.com",
     ],
   },

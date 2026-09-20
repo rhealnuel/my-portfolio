@@ -1,60 +1,65 @@
-// app/layout.tsx
+// src/app/layout.tsx
 import type { Metadata } from "next";
-import { DM_Sans } from "next/font/google";
+import { Inter, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import { Analytics } from "@vercel/analytics/next";
 
-// Load DM Sans font with weights and variable
-const dmSans = DM_Sans({
+const inter = Inter({
   subsets: ["latin"],
-  variable: "--font-dm-sans",
-  weight: ["400", "500", "700"],
+  variable: "--font-inter",
+  display: "swap",
+});
+
+const jetbrainsMono = JetBrains_Mono({
+  subsets: ["latin"],
+  variable: "--font-jetbrains-mono",
+  weight: ["400", "500"],
   display: "swap",
 });
 
 export const metadata: Metadata = {
-  title: "Emmanuel Kawekwune | Full Stack Developer, React & Next.js Expert in Lagos State, Nigeria",
+  title: "Emmanuel Kawekwune | IT Product Manager",
   description:
-    "Emmanuel Kawekwune is a highly skilled Full Stack Software Developer with 3+ years experience, specializing in React.js, Next.js, Node.js, and modern web technologies. Browse projects, experience, and contact info.",
+    "Emmanuel Kawekwune is a software engineer transitioning into Product Management. 3+ years building full-stack products with React, Next.js and Node.js, now focused on product strategy, discovery and delivery.",
   keywords: [
     "Emmanuel Kawekwune",
+    "Product Manager",
+    "Product Management",
+    "Software Engineer",
     "Full Stack Developer",
     "React Developer",
-    "Next.js Expert",
+    "Next.js",
     "Node.js",
-    "Web Developer Nigeria",
-    "JavaScript Engineer",
-    "Portfolio",
-    "Frontend Developer",
-    "Backend Developer"
+    "Product Discovery",
+    "Lagos Nigeria",
   ],
   alternates: {
     canonical: "https://kawekwune-emmanuel.vercel.app",
   },
   openGraph: {
-    title: "Emmanuel Kawekwune | Full Stack Developer Portfolio",
+    title: "Emmanuel Kawekwune | Product Manager",
     description:
-      "Discover the portfolio, projects, and skills of Emmanuel Kawekwune, a top React.js and Next.js engineer from Lagos State, Nigeria.",
+      "Software engineer moving into Product Management — hands-on experience building real digital products with React, Next.js and Node.js.",
     url: "https://kawekwune-emmanuel.vercel.app",
-    siteName: "Emmanuel Kawekwune Portfolio",
+    siteName: "Emmanuel Kawekwune",
     images: [
       {
         url: "https://kawekwune-emmanuel.vercel.app/first.png",
         width: 1200,
         height: 630,
-        alt: "Portfolio of Emmanuel Kawekwune, Full Stack Developer in Lagos State, Nigeria",
+        alt: "Emmanuel Kawekwune — Product Manager",
       },
     ],
     type: "website",
-    locale: "en_NG", // English/Nigeria
+    locale: "en_NG",
   },
   twitter: {
     card: "summary_large_image",
-    site: "@rhealnuel", // (optional) your Twitter handle
-    creator: "@rhealnuel", // (optional)
-    title: "Emmanuel Kawekwune | Full Stack Developer Portfolio",
+    site: "@rhealnuel",
+    creator: "@rhealnuel",
+    title: "Emmanuel Kawekwune | Product Manager",
     description:
-      "See the work and experience of Emmanuel Kawekwune, an expert in React.js, Next.js, and Node.js.",
+      "Software engineer moving into Product Management — hands-on experience building real digital products.",
     images: ["https://kawekwune-emmanuel.vercel.app/first.png"],
   },
 };
@@ -66,15 +71,11 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-       <head>
-        <link
-          rel="stylesheet"
-          href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/devicon.min.css"
-        />
-      </head>
-      <body className={`${dmSans.variable} w-full antialiased`}>
+      <body
+        className={`${inter.variable} ${jetbrainsMono.variable} w-full bg-paper text-ink antialiased`}
+      >
         {children}
-        <Analytics/>
+        <Analytics />
       </body>
     </html>
   );

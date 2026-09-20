@@ -1,4 +1,6 @@
+// src/components/ExperienceCard.tsx
 import Image from "next/image";
+import Reveal from "@/components/ui/Reveal";
 
 interface ExperienceCardProps {
   logo: string;
@@ -16,30 +18,61 @@ export default function ExperienceCard({
   bullets,
 }: ExperienceCardProps) {
   return (
-    <div className="flex flex-col sm:flex-row bg-white rounded-xl shadow-sm p-6 gap-4 sm:gap-6 w-full max-w-3xl">
-      {/* Logo */}
-      <div className="w-full sm:w-auto flex justify-center sm:justify-start">
-        <Image
-          src={logo}
-          alt={`${company} logo`}
-          width={60}
-          height={60}
-          className="object-contain"
-        />
-      </div>
+    <Reveal className="group w-full">
+      <article className="grid grid-cols-1 gap-6 border-t border-border py-8 md:grid-cols-[150px_minmax(0,1fr)_170px] md:gap-8 md:py-10">
+        {/* Company */}
+        <div className="flex items-start gap-4 md:block">
+          {logo && (
+            <div className="flex h-11 w-11 shrink-0 items-center justify-center overflow-hidden border border-border bg-paper-raised md:mb-5">
+              <Image
+                src={logo}
+                alt={`${company} logo`}
+                width={44}
+                height={44}
+                className="h-full w-full object-contain p-1.5"
+              />
+            </div>
+          )}
 
-      {/* Content */}
-      <div className="flex-1">
-        <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-2 sm:gap-0">
-          <h3 className="font-semibold text-lg text-gray-900">{role}</h3>
-          <span className="text-sm text-gray-500">{date}</span>
+          <div>
+            <p className="text-sm font-medium text-ink">{company}</p>
+
+            <span className="mt-1 block text-xs uppercase tracking-[0.14em] text-muted md:hidden">
+              {date}
+            </span>
+          </div>
         </div>
-        <ul className="mt-2 space-y-2 text-sm text-gray-700 list-disc list-inside">
-          {bullets.map((item, index) => (
-            <li key={index}>{item}</li>
-          ))}
-        </ul>
-      </div>
-    </div>
+
+        {/* Role + responsibilities */}
+        <div className="min-w-0">
+          <h3 className="text-xl font-medium tracking-[-0.02em] text-ink sm:text-2xl">
+            {role}
+          </h3>
+
+          {bullets.length > 0 && (
+            <ul className="mt-5 max-w-2xl space-y-3">
+              {bullets.map((item, index) => (
+                <li
+                  key={index}
+                  className="flex gap-3 text-sm leading-6 text-muted sm:text-[15px]"
+                >
+                  <span
+                    className="mt-[9px] h-1 w-1 shrink-0 rounded-full bg-accent"
+                    aria-hidden="true"
+                  />
+
+                  <span>{item}</span>
+                </li>
+              ))}
+            </ul>
+          )}
+        </div>
+
+        {/* Date */}
+        <div className="hidden text-right md:block">
+          <span className="eyebrow whitespace-nowrap">{date}</span>
+        </div>
+      </article>
+    </Reveal>
   );
 }
