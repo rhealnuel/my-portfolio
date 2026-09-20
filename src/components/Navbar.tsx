@@ -14,8 +14,7 @@ const navLinks = [
   { label: "Contact", href: "#Contact" },
 ];
 
-const RESUME_URL =
-  "https://docs.google.com/document/d/1iBuuoVU1eM26WLPdp_N-zX5L97rzgZTyO4UHTBFnLVE/edit?usp=sharing";
+const RESUME_URL = "/Emmanuel-Kawekwune-Resume.pdf";
 
 const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -47,7 +46,9 @@ const Navbar = () => {
       (entries) => {
         const visible = entries
           .filter((entry) => entry.isIntersecting)
-          .sort((a, b) => b.intersectionRatio - a.intersectionRatio);
+          .sort(
+            (a, b) => b.intersectionRatio - a.intersectionRatio
+          );
 
         if (visible[0]) {
           setActiveSection(visible[0].target.id);
@@ -121,18 +122,26 @@ const Navbar = () => {
         </a>
 
         {/* Desktop navigation */}
-        <nav className="hidden items-center md:flex" aria-label="Main navigation">
+        <nav
+          className="hidden items-center md:flex"
+          aria-label="Main navigation"
+        >
           <ul className="flex items-center gap-7">
             {navLinks.map((item) => {
-              const isActive = activeSection === item.href.slice(1);
+              const isActive =
+                activeSection === item.href.slice(1);
 
               return (
                 <li key={item.label}>
                   <a
                     href={item.href}
-                    aria-current={isActive ? "location" : undefined}
+                    aria-current={
+                      isActive ? "location" : undefined
+                    }
                     className={`group relative inline-flex py-2 text-[13px] font-medium transition-colors duration-200 ${
-                      isActive ? "text-ink" : "text-muted hover:text-ink"
+                      isActive
+                        ? "text-ink"
+                        : "text-muted hover:text-ink"
                     }`}
                   >
                     {item.label}
@@ -154,6 +163,7 @@ const Navbar = () => {
           <div className="ml-8 h-5 w-px bg-border" />
 
           <div className="ml-6 flex items-center gap-5">
+            {/* Resume */}
             <a
               href={RESUME_URL}
               target="_blank"
@@ -164,6 +174,7 @@ const Navbar = () => {
               <FiArrowUpRight size={13} />
             </a>
 
+            {/* Contact */}
             <a
               href="#Contact"
               className="group inline-flex items-center gap-2 border border-ink bg-ink px-4 py-2.5 text-[13px] font-medium text-paper transition-colors duration-200 hover:bg-ink-soft"
@@ -181,7 +192,11 @@ const Navbar = () => {
         <button
           type="button"
           onClick={() => setMenuOpen((value) => !value)}
-          aria-label={menuOpen ? "Close navigation menu" : "Open navigation menu"}
+          aria-label={
+            menuOpen
+              ? "Close navigation menu"
+              : "Open navigation menu"
+          }
           aria-expanded={menuOpen}
           aria-controls="mobile-navigation"
           className="flex h-10 w-10 items-center justify-center text-ink transition-opacity hover:opacity-60 md:hidden"
@@ -226,7 +241,9 @@ const Navbar = () => {
                       <a
                         href={item.href}
                         onClick={closeMenu}
-                        aria-current={isActive ? "location" : undefined}
+                        aria-current={
+                          isActive ? "location" : undefined
+                        }
                         className="flex items-center justify-between border-b border-border py-4 text-lg font-medium tracking-[-0.02em] text-ink"
                       >
                         <span>{item.label}</span>
@@ -234,7 +251,9 @@ const Navbar = () => {
                         <FiArrowUpRight
                           size={17}
                           className={`transition-opacity ${
-                            isActive ? "opacity-100" : "opacity-30"
+                            isActive
+                              ? "opacity-100"
+                              : "opacity-30"
                           }`}
                         />
                       </a>
@@ -244,6 +263,7 @@ const Navbar = () => {
               </ul>
 
               <div className="grid grid-cols-2 gap-3 border-t border-border py-6">
+                {/* Mobile Resume */}
                 <a
                   href={RESUME_URL}
                   target="_blank"
@@ -255,6 +275,7 @@ const Navbar = () => {
                   <FiArrowUpRight size={14} />
                 </a>
 
+                {/* Mobile Contact */}
                 <a
                   href="#Contact"
                   onClick={closeMenu}
